@@ -8,10 +8,18 @@ namespace Bankappen
 {
     internal class Bill
     {
-        int _amount;
-        string _accountNumber;
-        string _sender;
-        string _kidNr;
-        DateTime _payDate;
+        public int Id { get; private set; }
+        public int Amount { get; private set; }
+        public string AccountNumber { get; private set; }
+        public string Sender { get; private set; }
+        public string KidNr { get; private set; }
+        public DateTime PayDate { get; private set; }
+        public Bill(int id, int billAmount, string billNum,DateTime timeToPay)
+        {
+            Amount = billAmount;
+            KidNr = billNum;
+            PayDate = timeToPay;
+            Id = id;
+        }
     }
 }

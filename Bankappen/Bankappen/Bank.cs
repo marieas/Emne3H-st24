@@ -12,7 +12,7 @@ namespace Bankappen
 
         public Bank()
         {
-            _currentCustomer = new Customer("Kåre Knutsen");
+            _currentCustomer = new Customer("Kåre Knutsen",true);
             BankMenu();
         }
 
@@ -42,6 +42,10 @@ namespace Bankappen
                     _currentCustomer.WithdrawMoney(withdrawSum,true);
                     break;
                 case "3":
+                    _currentCustomer.PrintBills();
+                    Console.WriteLine("Please select bill id - of bill to pay");
+                    var billId = int.Parse(Console.ReadLine());
+                    _currentCustomer.PayBill(billId);
                     break;
                 case "4":
                     break;
@@ -52,5 +56,7 @@ namespace Bankappen
             }
 
         }
+
+      
     }
 }

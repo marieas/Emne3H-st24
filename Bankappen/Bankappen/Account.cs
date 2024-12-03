@@ -13,17 +13,22 @@ namespace Bankappen
         string _accountName;
         bool _savingsAccount;
         string _accountNumber;
-        string[] _accountTransactions;
+        List<string> _accountTransactions;
 
         public Account(bool isSavingsAccount, string accountName)
         {
             _savingsAccount = isSavingsAccount;
             _accountName = accountName;
-            _balance = 0;
-            _accountTransactions = new string[100];
+            _balance = 10000;
+            _accountTransactions = new List<string>();
             _accountNumber = new Guid().ToString();   
         }
 
+        public void AddNewTransaction(string transactionText)
+        {
+            _accountTransactions.Add(transactionText);
+            Console.WriteLine("Added: " + _accountTransactions[0]);
+        }
         public void DepositMoney(int amountToDeposit)
         {
             _balance += amountToDeposit;
